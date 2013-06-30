@@ -8,10 +8,18 @@
         <strong>Garden Caffé</strong>
       </a>
       <ul class="nav pull-right">
-        <li><a @if(request.uri == routes.Home.index().url){class="active"} href="/index.html">accueil</a></li>
-        <li><a @if(request.uri == routes.Booking.page().url){class="active"} href="/reservation.html">réservation</a></li>
-        <li><a @if(request.uri == routes.Feedback.page().url){class="active"} href="/feedback.html">avis</a></li>
-        <li><a @if(request.uri == routes.Contact.page().url){class="active"} href="/contact.html">contact</a></li>
+        <li>
+          <a @if(request.uri == routes.Home.index().url){class="active"} href="@routes.Home.index()">accueil</a>
+        </li>
+        <li>
+          <a @if(request.uri == routes.Booking.page().url){class="active"} href="@routes.Booking.page()">réservation</a>
+        </li>
+        <li>
+          <a @if(request.uri == routes.Feedback.page().url){class="active"} href="@routes.Feedback.page()">avis</a>
+        </li>
+        <li>
+          <a @if(request.uri == routes.Contact.page().url){class="active"} href="@routes.Contact.page()">contact</a>
+        </li>
       </ul>
     </div>
   </div>

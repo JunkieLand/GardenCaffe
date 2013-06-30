@@ -3,4 +3,100 @@
 
 @main("Réservation - Garden Caffé") {
 
+  <div id="contact">
+    <div class="container">
+      <div class="section_header">
+        <h3>Réservation</h3>
+      </div>
+
+      <div class="row contact">
+        <p>
+          Réservez dès maintenant en ligne. Nous reviendrons très vite vers vous pour vous confirmez votre séjour.<br />
+          N'hésitez pas à nous contacter pour un séjour longue durée.
+        </p>
+        <form>
+          <div class="row form">
+            <div class="span6 box">
+              <input class="name" type="text" placeholder="Nom">
+              <input class="mail" type="text" placeholder="Email">
+              <input class="phone" type="text" placeholder="Téléphone">
+
+              <div class="row">
+                <div id="from" class="input-append date span2">
+                  <input class="" type="text" size="16" placeholder="Arrivée" readonly>
+                  <span class="add-on">
+                    <i class="icon-th"></i>
+                  </span>
+                </div>
+                <div id="arrow" class="span1">
+                  <i class="icon-arrow-right"></i>
+                </div>
+                <div id="to" class="input-append date span2">
+                  <input class="" type="text" size="16" placeholder="Départ" readonly>
+                  <span class="add-on">
+                    <i class="icon-th"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div id="nb-people" class="input-append span2">
+                  <input type="text" placeholder="Nombre">
+                  <span class="add-on">personne(s)</span>
+                </div>
+                <div id="nb-night" class="input-append span2">
+                  <input type="text" placeholder="Nombre" readonly>
+                  <span class="add-on">nuit(s)</span>
+                </div>
+              </div>
+
+              <select id="accommodation" class="span6">
+                <option value="bungalow">Bungalow</option>
+                <option value="room">Chambre classique</option>
+              </select>
+
+              <textarea class="text" placeholder="Écrivez votre message ici..."></textarea>
+
+              <div class="row submit">
+                <div class="span3 right">
+                  <input type="submit" value="Envoyez votre réservation">
+                </div>
+              </div>
+            </div>
+
+            <div id="in_pricing2" class="span6">
+              <div class="row charts_wrapp">
+                <div class="span5 ultra pull-right" style="margin-bottom: 10px;">
+                  <div class="plan" style="top: 0px;">
+                    <div class="wrapper">
+                      <h3>Bungalow</h3>
+                      <div class="price">
+                        <span class="qty">51 000</span>
+                        <span class="dollar">FCFA</span>
+                        <span class="month">/jour</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="span5 ultra pull-right">
+                  <div class="plan" style="top: 0px;">
+                    <div class="wrapper">
+                      <h3>Chambre classique</h3>
+                      <div class="price">
+                        <span class="qty">51 000</span>
+                        <span class="dollar">FCFA</span>
+                        <span class="month">/jour</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 }
