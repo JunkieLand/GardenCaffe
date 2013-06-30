@@ -1,0 +1,19 @@
+@()(implicit request: play.api.mvc.Request[AnyContent])
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/index.html">
+        <strong>Garden Caffé</strong>
+      </a>
+      <ul class="nav pull-right">
+        <li><a @if(request.uri == routes.Home.index().url){class="active"} href="/index.html">accueil</a></li>
+        <li><a @if(request.uri == routes.Booking.page().url){class="active"} href="/reservation.html">réservation</a></li>
+        <li><a @if(request.uri == routes.Feedback.page().url){class="active"} href="/feedback.html">avis</a></li>
+        <li><a @if(request.uri == routes.Contact.page().url){class="active"} href="/contact.html">contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
