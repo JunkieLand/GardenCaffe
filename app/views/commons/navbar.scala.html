@@ -9,7 +9,7 @@
       </a>
       <ul class="nav pull-right">
         <li>
-          <a @if(request.uri.startsWith(routes.Home.index().url)){class="active"} href="@routes.Home.index()">accueil</a>
+          <a @if(request.uri.equals(routes.Home.index().url)){class="active"} href="@routes.Home.index()">accueil</a>
         </li>
         <li>
           <a @if(request.uri.startsWith(routes.Booking.page().url)){class="active"} href="@routes.Booking.page()">réservation</a>
