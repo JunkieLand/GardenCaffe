@@ -2,6 +2,7 @@ package models
 
 import org.joda.time.DateTime
 import dao.BookingDao
+import org.joda.time.format.DateTimeFormat
 
 
 trait BookingData {
@@ -34,18 +35,26 @@ case class SimpleBooking(name: String,
 }
 
 object SimpleBooking {
+  val formatter = DateTimeFormat.forPattern("dd-MM-yyyy")
+
   def apply(name: String,
             email: String,
             phone: String,
-            inDate: DateTime,
-            outDate: DateTime,
+            inDate: String,
+            outDate: String,
             peopleNb: Int,
             accommodationType: AccommodationType.Value,
-            msg: String): SimpleBooking =
-    apply(name, email, phone, inDate, outDate, peopleNb, accommodationType, msg, new DateTime())
+            msg: String): SimpleBooking = {
+    def parseDate(date: String) = formatter.parseDateTime(date)
+    apply(name, email, phone, parseDate(inDate), parseDate(outDate), peopleNb, accommodationType, msg, new DateTime())
+  }
 
-  def unapplyNoDate(b: SimpleBooking) =
-    Some(b.name, b.email, b.phone, b.inDate, b.outDate, b.peopleNb, b.accommodationType, b.msg)
+  def unapplyNoDate(b: SimpleBooking) = {
+    Some(
+      b.name, b.email, b.phone, formatter.print(b.inDate),
+      formatter.print(b.outDate), b.peopleNb, b.accommodationType, b.msg
+    )
+  }
 }
 
 

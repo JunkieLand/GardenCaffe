@@ -33,8 +33,8 @@ object BookingCtl extends Controller {
       NAME -> text,
       EMAIL -> email,
       PHONE -> text,
-      IN_DATE -> jodaDate,
-      OUT_DATE -> jodaDate,
+      IN_DATE -> text,
+      OUT_DATE -> text,
       PEOPLE_NB -> number,
       ACCOMMODATION_TYPE -> text,
       MSG -> text

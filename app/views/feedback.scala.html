@@ -11,6 +11,13 @@
         <h3>Avis des clients</h3>
       </div>
 
+      <form method="POST" action="@routes.FeedbackCtl.create()">
+        <input type="text" placeholder="Titre..." name="title" />
+        <input type="text" placeholder="Votre nom..." name="author" />
+        <input type="text" placeholder="Votre commentaire..." name="msg" />
+        <input type="submit" value="Valider" />
+      </form>
+
       <div class="row post_row">
         @feedbacks.foreach( fb => utils.oneFeedback(fb))
       </div>
