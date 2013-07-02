@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 
 
-object Contact extends Controller{
+object ContactCtl extends Controller{
 
   def page() = Action { implicit request =>
     Ok(views.html.contact())
