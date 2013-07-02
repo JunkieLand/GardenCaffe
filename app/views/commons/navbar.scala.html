@@ -9,16 +9,16 @@
       </a>
       <ul class="nav pull-right">
         <li>
-          <a @if(request.uri.equals(routes.Home.index().url)){class="active"} href="@routes.Home.index()">accueil</a>
+          <a @if(request.uri.equals(routes.HomeCtl.index().url)){class="active"} href="@routes.HomeCtl.index()">accueil</a>
         </li>
         <li>
-          <a @if(request.uri.startsWith(routes.Booking.page().url)){class="active"} href="@routes.Booking.page()">réservation</a>
+          <a @if(request.uri.startsWith(routes.BookingCtl.page().url)){class="active"} href="@routes.BookingCtl.page()">réservation</a>
         </li>
         <li>
-          <a @if(request.uri.startsWith(routes.Feedback.page().url)){class="active"} href="@routes.Feedback.page()">avis</a>
+          <a @if(request.uri.startsWith(routes.FeedbackCtl.page().url)){class="active"} href="@routes.FeedbackCtl.page()">avis</a>
         </li>
         <li>
-          <a @if(request.uri.startsWith(routes.Contact.page().url)){class="active"} href="@routes.Contact.page()">contact</a>
+          <a @if(request.uri.startsWith(routes.ContactCtl.page().url)){class="active"} href="@routes.ContactCtl.page()">contact</a>
         </li>
       </ul>
     </div>
