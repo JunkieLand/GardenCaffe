@@ -20,6 +20,13 @@ case class SimpleFeedback(title: String, date: DateTime, author: String, msg: St
   }
 }
 
+object SimpleFeedback {
+  def apply(title: String, author: String, msg: String): SimpleFeedback = apply(
+    title, new DateTime(), author, msg
+  )
+  def unapplyNodate(s: SimpleFeedback) = Some(s.title, s.author, s.msg)
+}
+
 
 case class Feedback(id: Feedback.Id, title: String, date: DateTime, author: String, msg: String) extends FeedbackData {
   def formatedDate: String = {

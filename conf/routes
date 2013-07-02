@@ -12,6 +12,7 @@ GET      /avis                       controllers.FeedbackCtl.page(page: Int = 1)
 POST     /avis                       controllers.FeedbackCtl.create()
 
 GET      /contact                    controllers.ContactCtl.page()
+POST     /contact                    controllers.ContactCtl.create()
 
 # Map static resources from the /public folder to the /assets URL path
 GET      /assets/*file               controllers.Assets.at(path="/public", file)

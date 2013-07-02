@@ -19,10 +19,9 @@ object FeedbackCtl extends Controller{
   val feedbackForm = Form(
     mapping(
       TITLE -> text,
-      DATE -> jodaDate,
       AUTHOR -> text,
       MSG -> text
-    )(SimpleFeedback.apply)(SimpleFeedback.unapply)
+    )(SimpleFeedback.apply)(SimpleFeedback.unapplyNodate)
   )
 
   def create() = Action { implicit request =>

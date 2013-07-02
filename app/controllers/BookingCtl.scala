@@ -20,7 +20,8 @@ object BookingCtl extends Controller {
       new DateTime().plusDays(20),
       3,
       AccommodationType.Bungalow,
-      "Avec une bière bien fraiche !"
+      "Avec une bière bien fraiche !",
+      new DateTime()
     )
     BookingDao.create(booking)
     Ok(views.html.booking())
@@ -37,7 +38,7 @@ object BookingCtl extends Controller {
       PEOPLE_NB -> number,
       ACCOMMODATION_TYPE -> text,
       MSG -> text
-    )(SimpleBooking.apply)(SimpleBooking.unapply)
+    )(SimpleBooking.apply)(SimpleBooking.unapplyNoDate)
   )
 
   def create() = Action { implicit request =>

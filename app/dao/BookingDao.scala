@@ -24,7 +24,8 @@ object BookingDao extends MongoUtils {
       OUT_DATE -> booking.outDate,
       PEOPLE_NB -> booking.peopleNb,
       ACCOMMODATION_TYPE -> booking.accommodationType,
-      MSG -> booking.msg
+      MSG -> booking.msg,
+      CREATION_DATE -> booking.creationDate
     )
     bookingsColl.insert(query)
     bookingFromDBO(query)
@@ -39,6 +40,7 @@ object BookingDao extends MongoUtils {
     dbo.as[DateTime](OUT_DATE),
     dbo.as[Int](PEOPLE_NB),
     dbo.as[AccommodationType.Value](ACCOMMODATION_TYPE),
-    dbo.as[String](MSG)
+    dbo.as[String](MSG),
+    dbo.as[DateTime](CREATION_DATE)
   )
 }
