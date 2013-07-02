@@ -34,6 +34,8 @@ object FeedbackDao extends MongoUtils {
       .toSeq
   }
 
+  def totalFeedbacks: Int = feedbackColl.find().count
+
 
   def feedbackFromDBO(dbo: MongoDBObject) = Feedback(
     dbo.as[ObjectId](ID).toString,

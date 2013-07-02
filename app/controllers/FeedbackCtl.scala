@@ -4,13 +4,15 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import models.Feedback._
-import models.SimpleFeedback
+import models.{Feedback, SimpleFeedback}
 
 
 object FeedbackCtl extends Controller{
 
-  def page() = Action { implicit request =>
-    Ok(views.html.feedback())
+  def page(page: Int) = Action { implicit request =>
+    val feedbacks = Feedback.find(page)
+    val totalPageNb = Feedback.totalPageNb()
+    Ok(views.html.feedback(feedbacks, page, totalPageNb))
   }
 
 
