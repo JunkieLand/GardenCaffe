@@ -14,5 +14,8 @@ POST     /avis                       controllers.FeedbackCtl.create()
 GET      /contact                    controllers.ContactCtl.page()
 POST     /contact                    controllers.ContactCtl.create()
 
+
+GET      /admin                      controllers.Administration.news(page: Int ?= 1)
+
 # Map static resources from the /public folder to the /assets URL path
 GET      /assets/*file               controllers.Assets.at(path="/public", file)

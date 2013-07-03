@@ -1,0 +1,8 @@
+@(news: models.News)
+
+<h5>@news.title</h5>
+<small>Posté le @news.postDateDDMMYYY</small>
+<small>Évènement le @news.eventDateDDMMYYY</small>
+<p class="news-text">
+  @news.msg
+</p>
