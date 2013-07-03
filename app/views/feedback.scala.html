@@ -26,15 +26,15 @@
         <div id="pagination" class="pagination">
           <ul>
             <li>
-              <a href="">Préc</a>
+              <a href="@routes.FeedbackCtl.page(currentPage - 1)">Préc</a>
             </li>
             @for(i <-  1 to totalPage) {
               <li>
-                <a href="@routes.FeedbackCtl.page()">@i</a>
+                <a href="@routes.FeedbackCtl.page(i)">@i</a>
               </li>
             }
             <li>
-              <a href="">Suiv</a>
+              <a href="@routes.FeedbackCtl.page(currentPage + 1)">Suiv</a>
             </li>
           </ul>
         </div>

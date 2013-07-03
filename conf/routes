@@ -8,7 +8,7 @@ GET      /                           controllers.HomeCtl.index
 GET      /reservation                controllers.BookingCtl.page()
 POST     /reservation                controllers.BookingCtl.create()
 
-GET      /avis                       controllers.FeedbackCtl.page(page: Int = 1)
+GET      /avis                       controllers.FeedbackCtl.page(page: Int ?= 1)
 POST     /avis                       controllers.FeedbackCtl.create()
 
 GET      /contact                    controllers.ContactCtl.page()
