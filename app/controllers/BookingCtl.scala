@@ -12,18 +12,6 @@ import play.api.data.Forms._
 object BookingCtl extends Controller {
 
   def page() = Action { implicit request =>
-    val booking = new SimpleBooking(
-      "Toto",
-      "toto@toto.com",
-      "222222",
-      new DateTime().plusDays(10),
-      new DateTime().plusDays(20),
-      3,
-      AccommodationType.Bungalow,
-      "Avec une bière bien fraiche !",
-      new DateTime()
-    )
-    BookingDao.create(booking)
     Ok(views.html.booking())
   }
 
