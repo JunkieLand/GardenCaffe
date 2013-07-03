@@ -47,7 +47,7 @@ object Feedback {
 
 
   def find(page: Int): Seq[Feedback] = {
-    FeedbackDao.find(page * PAGE_SIZE, PAGE_SIZE)
+    FeedbackDao.find((page - 1) * PAGE_SIZE, PAGE_SIZE)
   }
 
   def totalPageNb(): Int = FeedbackDao.totalFeedbacks / PAGE_SIZE + 1

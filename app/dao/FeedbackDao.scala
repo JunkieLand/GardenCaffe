@@ -31,7 +31,7 @@ object FeedbackDao extends MongoUtils {
       .skip(skip)
       .limit(limit)
       .map(feedbackFromDBO(_))
-      .toSeq
+      .toList
   }
 
   def totalFeedbacks: Int = feedbackColl.find().count

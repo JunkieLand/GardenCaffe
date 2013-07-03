@@ -19,7 +19,7 @@
       </form>
 
       <div class="row post_row">
-        @feedbacks.foreach( fb => utils.oneFeedback(fb))
+        @feedbacks.map( fb => utils.oneFeedback(fb))
       </div>
 
       @if(totalPage > 1) {
