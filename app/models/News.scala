@@ -13,7 +13,20 @@ trait NewsData {
 }
 
 
-case class SimpleNews(title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends NewsData
+case class SimpleNews(title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends NewsData {
+  def save(): News = NewsDao.create(this)
+}
+
+
+object SimpleNews {
+  val formatter = DateTimeFormat.forPattern("dd-MM-yyyy")
+
+  def apply(title: String, eventDate: String, msg: String): SimpleNews = {
+    def parseDate(date: String) = formatter.parseDateTime(date)
+    apply(title, parseDate(eventDate), new DateTime(), msg)
+  }
+  def unapplyNoPostDate(news: SimpleNews) = Some(news.title, formatter.print(news.eventDate), news.msg)
+}
 
 
 case class News(id: News.Id, title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends NewsData {

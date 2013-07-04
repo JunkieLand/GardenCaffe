@@ -1,7 +1,7 @@
 package dao
 
 import dao.utils.MongoUtils
-import models.News
+import models.{SimpleNews, News}
 import models.News._
 import com.mongodb.casbah.commons.conversions.scala._
 import com.mongodb.casbah.Imports._
@@ -13,6 +13,17 @@ object NewsDao extends MongoUtils {
   val newsColl = db("news")
   RegisterJodaTimeConversionHelpers()
 
+
+  def create(news: SimpleNews): News = {
+    val query = §(
+      TITLE -> news.title,
+      EVENT_DATE -> news.eventDate,
+      POST_DATE -> news.postDate,
+      MSG -> news.msg
+    )
+    newsColl.insert(query)
+    newsFromDBO(query)
+  }
 
   def findAll(skip: Int, limit: Int): Seq[News] = {
     newsColl.find()
