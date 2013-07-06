@@ -14,38 +14,62 @@
           Réservez dès maintenant en ligne. Nous reviendrons très vite vers vous pour vous confirmez votre séjour.<br />
           N'hésitez pas à nous contacter pour un séjour longue durée.
         </p>
-        <form method="POST" action="@routes.BookingCtl.create()">
+        <form id="bookingForm" method="POST" action="@routes.BookingCtl.create()">
           <div class="row form">
             <div class="span6 box">
-              <input class="name" type="text" placeholder="Nom" name="name">
-              <input class="mail" type="text" placeholder="Email" name="email">
+              <div id="nameCtrl" class="control-group">
+                <div class="controls">
+                  <input class="name" type="text" placeholder="Nom" name="name">
+                  <span class="help-block">Indiquez votre nom</span>
+                </div>
+              </div>
+              <div id="emailCtrl" class="control-group">
+                <div class="controls">
+                  <input class="mail" type="text" placeholder="Email" name="email">
+                  <span class="help-block">Indiquez votre email</span>
+                </div>
+              </div>
               <input class="phone" type="text" placeholder="Téléphone" name="phone">
 
               <div class="row">
-                <div id="from" class="input-append date span2">
-                  <input type="text" size="16" placeholder="Arrivée" name="inDate" readonly>
-                  <span class="add-on">
-                    <i class="icon-th"></i>
-                  </span>
+                <div id="fromCtrl" class="control-group">
+                  <div class="controls">
+                    <div id="from" class="input-append date span2">
+                      <input id="fromInput" type="text" size="16" placeholder="Arrivée" name="inDate" readonly>
+                      <span class="add-on">
+                        <i class="icon-th"></i>
+                      </span>
+                    </div>
+                    <span class="help-block">Indiquez les dates d'arrivée et de départ</span>
+                  </div>
                 </div>
                 <div id="arrow" class="span1">
                   <i class="icon-arrow-right"></i>
                 </div>
-                <div id="to" class="input-append date span2">
-                  <input type="text" size="16" placeholder="Départ" name="outDate" readonly>
-                  <span class="add-on">
-                    <i class="icon-th"></i>
-                  </span>
+                <div id="toCtrl" class="control-group">
+                  <div class="controls">
+                    <div id="to" class="input-append date span2">
+                      <input id="toInput" type="text" size="16" placeholder="Départ" name="outDate" readonly>
+                      <span class="add-on">
+                        <i class="icon-th"></i>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="row">
-                <div id="nb-people" class="input-append span2">
-                  <input type="text" placeholder="Nombre" name="peopleNb">
-                  <span class="add-on">personne(s)</span>
+                <div id="peopleNbCtrl" class="control-group">
+                  <div class="controls">
+                    <div id="nb-people" class="input-append span2">
+                      <input type="text" placeholder="Nombre" name="peopleNb">
+                      <span class="add-on">personne(s)</span>
+                    </div>
+                    <span class="help-block">Indiquez le nombre de personnes</span>
+                  </div>
                 </div>
                 <div id="nb-night" class="input-append span2">
-                  <input type="text" placeholder="Nombre" readonly>
+                  <input id="nbNightVal" type="text" placeholder="Nombre" readonly>
                   <span class="add-on">nuit(s)</span>
                 </div>
               </div>
@@ -57,7 +81,12 @@
 
               <textarea class="text" placeholder="Écrivez votre message ici..." name="msg"></textarea>
 
-              <div class="row submit">
+              <div id="bookingSuccess" class="alert alert-success">
+                <strong>Merci !</strong>
+                 Un email de confirmation vous avez été envoyé.
+              </div>
+
+              <div id="bookingSubmit" class="row submit">
                 <div class="span3 right">
                   <input type="submit" value="Envoyez votre réservation">
                 </div>
