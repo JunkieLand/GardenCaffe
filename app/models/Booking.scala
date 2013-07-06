@@ -45,6 +45,12 @@ case class SimpleBooking(name: String,
       htmlBody = views.html.email.bookingToCustomer(booking).toString
     )
     // TODO Send mail to admin
+    mailer.send(
+      subject = "Garden Caffé - Réservation en ligne",
+      from = "reservation@garden-caffe.com",
+      to = mailer.ADMIN_EMAIL,
+      htmlBody = views.html.email.bookingToAdmin(booking).toString
+    )
 
     booking
   }

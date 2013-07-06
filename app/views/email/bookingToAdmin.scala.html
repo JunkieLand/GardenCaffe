@@ -1,0 +1,28 @@
+@(booking: models.BookingData)
+
+
+@email.utils.template {
+  <p>Salut cher administrateur du Garden Caffé,</p>
+
+  <p>
+    Quelqu'un a fait une réservation sur le site web !<br />
+    Il faut le recontacter rapidement pour lui confirmer sa réservation.
+  </p>
+
+  <p>Voici les informations fournies :</p>
+
+  <ul>
+    <li>Nom : @booking.name</li>
+    <li>Téléphone : @booking.phone</li>
+    <li>Date d'entrée : @booking.inDateDDMMYYYY</li>
+    <li>Date de sortie : @booking.outDateDDMMYYYY</li>
+    <li>Nombre de personne(s) : @booking.peopleNb</li>
+    <li>Type de logement : @booking.accommodationTypeAsString</li>
+    <li>Message : @booking.msg</li>
+  </ul>
+
+  <p>
+    Cordialement<br />
+    Le Garden Caffé
+  </p>
+}
