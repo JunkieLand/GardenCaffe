@@ -46,25 +46,25 @@
       <h3>Dernières news</h3>
 
       @news.map(n => admin.utils.oneNews(n))
-    </div>
 
-    @if(totalPageNb > 1) {
-      <div id="pagination" class="pagination">
-        <ul>
-          <li>
-            <a href="@routes.FeedbackCtl.page(currentPage - 1)">Préc</a>
-          </li>
-          @for(i <-  1 to totalPageNb) {
-            <li>
-              <a href="@routes.FeedbackCtl.page(i)">@i</a>
+      @if(totalPageNb > 1) {
+        <div class="pagination">
+          <ul>
+            <li @if(currentPage == 1){class="disabled"}>
+              <a href="@routes.FeedbackCtl.page(currentPage - 1)">Préc</a>
             </li>
-          }
-          <li>
-            <a href="@routes.FeedbackCtl.page(currentPage + 1)">Suiv</a>
-          </li>
-        </ul>
-      </div>
-    }
+            @for(i <-  1 to totalPageNb) {
+              <li @if(i == currentPage){class="disabled"}>
+                <a href="@routes.FeedbackCtl.page(i)">@i</a>
+              </li>
+            }
+            <li @if(currentPage == totalPageNb){class="disabled"}>
+              <a href="@routes.FeedbackCtl.page(currentPage + 1)">Suiv</a>
+            </li>
+          </ul>
+        </div>
+      }
+    </div>
 
     <script src="@routes.Assets.at("scripts/libs/bootstrap-datepicker.js")"></script>
     <script src="@routes.Assets.at("scripts/admin.js")"></script>

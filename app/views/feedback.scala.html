@@ -23,17 +23,17 @@
       </div>
 
       @if(totalPage > 1) {
-        <div id="pagination" class="pagination">
+        <div class="pagination">
           <ul>
-            <li>
+            <li @if(currentPage == 1){class="disabled"}>
               <a href="@routes.FeedbackCtl.page(currentPage - 1)">Préc</a>
             </li>
             @for(i <-  1 to totalPage) {
-              <li>
+              <li @if(i == currentPage){class="disabled"}>
                 <a href="@routes.FeedbackCtl.page(i)">@i</a>
               </li>
             }
-            <li>
+            <li @if(currentPage == totalPage){class="disabled"}>
               <a href="@routes.FeedbackCtl.page(currentPage + 1)">Suiv</a>
             </li>
           </ul>
