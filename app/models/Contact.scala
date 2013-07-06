@@ -2,6 +2,7 @@ package models
 
 import org.joda.time.DateTime
 import dao.ContactDao
+import services.AsyncSendgridMailer
 
 
 trait ContactData {
@@ -16,8 +17,15 @@ trait ContactData {
 case class SimpleContact(name: String, email: String, phone: String, msg: String, date: DateTime = new DateTime())
   extends ContactData {
   def save(): Contact = {
-    ContactDao.create(this)
-    // TODO Send email to amdin
+    val contact = ContactDao.create(this)
+    val mailer = AsyncSendgridMailer()
+    mailer.send(
+      subject = "Une personne a contacté le Grden Caffé",
+      from = "contact@garden-caffe.com",
+      to = mailer.ADMIN_EMAIL,
+      htmlBody = views.html.email.contact(contact).toString
+    )
+    contact
   }
 }
 

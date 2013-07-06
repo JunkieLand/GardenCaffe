@@ -1,0 +1,17 @@
+@(contact: models.ContactData)
+
+@email.utils.template {
+  <p>
+    Une personne a contacté le Garden Caffé par le formulaire de contact du site web :
+  </p>
+
+  <ul>
+    <li>Nom : @contact.name</li>
+    <li>Email : @contact.email</li>
+    <li>Téléphone : @contact.phone</li>
+  </ul>
+
+  <p>Voici son message :</p>
+
+  <p>@contact.msg</p>
+}

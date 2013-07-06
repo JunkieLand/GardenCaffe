@@ -12,7 +12,8 @@ object ApplicationBuild extends Build {
     jdbc,
     anorm,
     "org.mongodb" %% "casbah" % "2.6.2",
-    "joda-time" % "joda-time" % "2.2"
+    "joda-time" % "joda-time" % "2.2",
+    "javax.mail" % "mail" % "1.5.0-b01"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
