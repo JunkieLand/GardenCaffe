@@ -3,6 +3,7 @@ package models
 import org.joda.time.DateTime
 import dao.BookingDao
 import org.joda.time.format.DateTimeFormat
+import services.AsyncSendgridMailer
 
 
 trait BookingData {
@@ -15,6 +16,12 @@ trait BookingData {
   val accommodationType: AccommodationType.Value
   val msg: String
   val creationDate: DateTime
+
+  private val formatter = DateTimeFormat.forPattern("dd-MM-yyyy")
+
+  def inDateDDMMYYYY = formatter.print(inDate)
+  def outDateDDMMYYYY = formatter.print(outDate)
+  val accommodationTypeAsString = AccommodationType.toString(accommodationType)
 }
 
 case class SimpleBooking(name: String,
@@ -28,9 +35,18 @@ case class SimpleBooking(name: String,
                          creationDate: DateTime) extends BookingData {
 
   def save(): Booking = {
-    BookingDao.create(this)
+    val booking = BookingDao.create(this)
+    val mailer = AsyncSendgridMailer()
     // TODO Send confirmation mail
+    mailer.send(
+      subject = "Garden Caffé - Confirmation de réservation",
+      from = "reservation@garden-caffe.com",
+      to = email,
+      htmlBody = views.html.email.bookingToCustomer(booking).toString
+    )
     // TODO Send mail to admin
+
+    booking
   }
 }
 
@@ -90,4 +106,10 @@ object AccommodationType {
   type Value = String
   val Bungalow: Value = "Bungalow"
   val ClassicRoom: Value = "ClassicRoom"
+
+  def toString(value: Value) = if(value == "Bungalow") {
+    "Bungalow"
+  } else {
+    "Chambre classique"
+  }
 }

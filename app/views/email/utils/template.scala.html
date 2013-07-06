@@ -6,6 +6,13 @@
 
   <div id="content" style="padding: 5px 20px">
     @content
+
+    <p>
+      <i style="font-size: 90%">
+        Ceci est un email automatique. Merci de ne pas y répondre.<br />
+        <a href="@email.utils.fullUrl(routes.ContactCtl.page())">Cliquez ici</a> pour contacter le Garden Caffé.
+      </i>
+    </p>
   </div>
 
 </body>
