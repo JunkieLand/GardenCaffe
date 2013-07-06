@@ -37,14 +37,14 @@ case class SimpleBooking(name: String,
   def save(): Booking = {
     val booking = BookingDao.create(this)
     val mailer = AsyncSendgridMailer()
-    // TODO Send confirmation mail
+    // Send confirmation mail
     mailer.send(
       subject = "Garden Caffé - Confirmation de réservation",
       from = "reservation@garden-caffe.com",
       to = email,
       htmlBody = views.html.email.bookingToCustomer(booking).toString
     )
-    // TODO Send mail to admin
+    // Send mail to admin
     mailer.send(
       subject = "Garden Caffé - Réservation en ligne",
       from = "reservation@garden-caffe.com",

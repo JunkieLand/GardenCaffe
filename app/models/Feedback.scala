@@ -3,6 +3,7 @@ package models
 import org.joda.time.DateTime
 import dao.FeedbackDao
 import org.joda.time.format.DateTimeFormat
+import services.AsyncSendgridMailer
 
 
 trait FeedbackData {
@@ -15,8 +16,16 @@ trait FeedbackData {
 
 case class SimpleFeedback(title: String, date: DateTime, author: String, msg: String) extends FeedbackData {
   def save(): Feedback = {
-    FeedbackDao.create(this)
-    // TODO Send mail to admin
+    val feedback = FeedbackDao.create(this)
+    // Send mail to admin
+    val mailer = AsyncSendgridMailer()
+    mailer.send(
+      subject = "Garden Caffé - Avis d'un client",
+      from = "avis@garden-caffe.com",
+      to = mailer.ADMIN_EMAIL,
+      htmlBody = views.html.email.feedbackToAdmin(feedback).toString
+    )
+    feedback
   }
 }
 

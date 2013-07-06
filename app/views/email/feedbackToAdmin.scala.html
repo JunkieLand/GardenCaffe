@@ -1,0 +1,25 @@
+@(feedback: models.FeedbackData)
+
+
+@email.utils.template {
+  <p>Salut cher administrateur du Garden Caffé,</p>
+
+  <p>
+    Quelqu'un a déposé un avis sur le site web !
+  </p>
+
+  <p>Voici ce qu'il a dit :</p>
+
+  <ul>
+    <li>Titre : @feedback.title</li>
+    <li>Nom de la personne : @feedback.author</li>
+    <li>Et son message :</li>
+  </ul>
+
+  <p>@feedback.msg</p>
+
+  <p>
+    Cordialement<br />
+    Le Garden Caffé
+  </p>
+}
