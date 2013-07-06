@@ -76,6 +76,48 @@ var initBookingForm = function() {
 };
 
 
+var initContactForm = function() {
+  var form = $("#contactForm"),
+    onSubmit = function(e) {
+      e.preventDefault();
+      var hasError = false;
+
+      $(".control-group").removeClass("error");
+      $(".help-block").hide();
+
+      var nameCtrl = $("#nameCtrl");
+      if(nameCtrl.find("input").val().length == 0){
+        hasError = true;
+        nameCtrl.addClass("error");
+        nameCtrl.find(".help-block").show();
+      }
+
+      var emailCtrl = $("#emailCtrl");
+      var emailVal = emailCtrl.find("input").val();
+      if(emailVal.length < 3 || emailVal.indexOf("@") == -1){
+        hasError = true;
+        emailCtrl.addClass("error");
+        emailCtrl.find(".help-block").show();
+      }
+
+      var msgCtrl = $("#msgCtrl");
+      if(msgCtrl.find("textarea").val().length == 0){
+        hasError = true;
+        msgCtrl.addClass("error");
+        msgCtrl.find(".help-block").show();
+      }
+
+      if(!hasError) {
+        $("#contactSubmit").hide();
+        $("#contactSuccess").show();
+        form.off("submit", onSubmit);
+        form.submit();
+      }
+    };
+  form.on("submit", onSubmit);
+};
+
+
 $(document).ready(function() {
   var path = window.location.pathname;
 
@@ -84,6 +126,8 @@ $(document).ready(function() {
     initBookingForm();
   } else if(path.match(/\/admin/)) {
     initDatePickers();
+  } else if(path.match(/\/contact/)) {
+    initContactForm();
   }
 
 });

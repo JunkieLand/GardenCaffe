@@ -13,19 +13,39 @@
           Une question ? Une critique ? Une réservation pour un séjour longue durée ?<br />
           N'hésitez pas à nous contacter.
         </p>
-        <form method="POST" action="@routes.ContactCtl.create()">
+        <form id="contactForm" method="POST" action="@routes.ContactCtl.create()">
           <div class="row form">
             <div class="span6 box">
-              <input class="name" type="text" placeholder="Nom" name="name">
-              <input class="mail" type="text" placeholder="Email" name="email">
+              <div id="nameCtrl" class="control-group">
+                <div class="controls">
+                  <input class="name" type="text" placeholder="Nom" name="name">
+                  <span class="help-block">Indiquez votre nom</span>
+                </div>
+              </div>
+              <div id="emailCtrl" class="control-group">
+                <div class="controls">
+                  <input class="mail" type="text" placeholder="Email" name="email">
+                  <span class="help-block">Indiquez votre email</span>
+                </div>
+              </div>
               <input class="phone" type="text" placeholder="Téléphone" name="phone">
-              <textarea class="text" placeholder="Écrivez votre message ici..." name="msg"></textarea>
-              <div class="row submit">
+              <div id="msgCtrl" class="control-group">
+                <div class="controls">
+                  <textarea class="text" placeholder="Écrivez votre message ici..." name="msg"></textarea>
+                  <span class="help-block">Écrivez un message</span>
+                </div>
+              </div>
+
+              <div id="contactSuccess" class="alert alert-success">
+                <strong>Ok !</strong> Votre message à bien été transmis.
+              </div>
+              <div id="contactSubmit" class="row submit">
                 <div class="span3 right">
                   <input type="submit" value="Envoyez votre message">
                 </div>
               </div>
             </div>
+
             <div class="span6 box box_r">
               <h4>Horaires</h4>
               <p>
