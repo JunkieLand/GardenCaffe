@@ -19,7 +19,20 @@
       </form>
 
       <div class="row post_row">
-        @feedbacks.map( fb => utils.oneFeedback(fb))
+        <div class="span6">
+          @for(i <- 0 to feedbacks.size - 1) {
+            @if(i % 2 == 0) {
+              @utils.oneFeedback(feedbacks(i))
+            }
+          }
+        </div>
+        <div class="span6">
+          @for(i <- 0 to feedbacks.size - 1) {
+            @if(i % 2 == 1) {
+              @utils.oneFeedback(feedbacks(i))
+            }
+          }
+        </div>
       </div>
 
       @if(totalPage > 1) {

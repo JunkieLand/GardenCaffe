@@ -12,7 +12,11 @@ object FeedbackCtl extends Controller{
   def page(page: Int) = Action { implicit request =>
     val feedbacks = Feedback.find(page)
     val totalPageNb = Feedback.totalPageNb()
-    Ok(views.html.feedback(feedbacks, page, totalPageNb))
+    if(page < 1) {
+      BadRequest
+    } else {
+      Ok(views.html.feedback(feedbacks, page, totalPageNb))
+    }
   }
 
 
