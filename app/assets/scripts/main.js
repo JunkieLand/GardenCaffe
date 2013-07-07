@@ -8,7 +8,7 @@ var initDatePickers = function() {
 };
 
 var initBookingForm = function() {
-  var form = $("#bookingForm"),
+  var form = $("#bookingForm");
   form.on("submit", function(e) {
     e.preventDefault();
     var hasError = false;
@@ -79,7 +79,7 @@ var initBookingForm = function() {
 
 
 var initContactForm = function() {
-  var form = $("#contactForm"),
+  var form = $("#contactForm");
   form.on("submit", function(e) {
     e.preventDefault();
     var hasError = false;
