@@ -122,6 +122,13 @@ var initContactForm = function() {
 };
 
 
+var initPagination = function() {
+  $(".pagination .disabled a").on("click", function(e) {
+    e.preventDefault();
+  });
+};
+
+
 $(document).ready(function() {
   var path = window.location.pathname;
 
@@ -132,6 +139,8 @@ $(document).ready(function() {
     initDatePickers();
   } else if(path.match(/\/contact/)) {
     initContactForm();
+  } else if(path.match(/\/avis/)) {
+    initPagination();
   }
 
 });

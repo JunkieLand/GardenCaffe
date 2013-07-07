@@ -60,6 +60,10 @@ object Feedback {
     FeedbackDao.find((page - 1) * PAGE_SIZE, PAGE_SIZE)
   }
 
-  def totalPageNb(): Int = FeedbackDao.totalFeedbacks / PAGE_SIZE + 1
+  def totalPageNb(): Int = if(FeedbackDao.totalFeedbacks % PAGE_SIZE == 0) {
+    FeedbackDao.totalFeedbacks / PAGE_SIZE
+  } else {
+    FeedbackDao.totalFeedbacks / PAGE_SIZE + 1
+  }
 
 }
