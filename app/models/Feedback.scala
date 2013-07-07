@@ -4,6 +4,7 @@ import org.joda.time.DateTime
 import dao.FeedbackDao
 import org.joda.time.format.DateTimeFormat
 import services.AsyncSendgridMailer
+import play.api.mvc.{AnyContent, Request}
 
 
 trait FeedbackData {
@@ -15,7 +16,7 @@ trait FeedbackData {
 
 
 case class SimpleFeedback(title: String, date: DateTime, author: String, msg: String) extends FeedbackData {
-  def save(): Feedback = {
+  def save()(implicit request: Request[AnyContent]): Feedback = {
     val feedback = FeedbackDao.create(this)
     // Send mail to admin
     val mailer = AsyncSendgridMailer()

@@ -1,4 +1,4 @@
-@(feedback: models.FeedbackData)
+@(feedback: models.FeedbackData)(implicit request: play.api.mvc.Request[AnyContent])
 
 
 @email.utils.template {

@@ -1,4 +1,4 @@
-@(contact: models.ContactData)
+@(contact: models.ContactData)(implicit request: play.api.mvc.Request[AnyContent])
 
 @email.utils.template {
   <p>

@@ -3,7 +3,7 @@ package models
 import org.joda.time.DateTime
 import dao.ContactDao
 import services.AsyncSendgridMailer
-
+import play.api.mvc.{AnyContent, Request}
 
 trait ContactData {
   val name: String
@@ -16,11 +16,11 @@ trait ContactData {
 
 case class SimpleContact(name: String, email: String, phone: String, msg: String, date: DateTime = new DateTime())
   extends ContactData {
-  def save(): Contact = {
+  def save()(implicit request: Request[AnyContent]): Contact = {
     val contact = ContactDao.create(this)
     val mailer = AsyncSendgridMailer()
     mailer.send(
-      subject = "Une personne a contacté le Grden Caffé",
+      subject = "Une personne a contacté le Garden Caffé",
       from = "contact@garden-caffe.com",
       to = mailer.ADMIN_EMAIL,
       htmlBody = views.html.email.contact(contact).toString

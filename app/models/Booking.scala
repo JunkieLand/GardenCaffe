@@ -4,6 +4,7 @@ import org.joda.time.DateTime
 import dao.BookingDao
 import org.joda.time.format.DateTimeFormat
 import services.AsyncSendgridMailer
+import play.api.mvc.{AnyContent, Request}
 
 
 trait BookingData {
@@ -34,7 +35,7 @@ case class SimpleBooking(name: String,
                          msg: String,
                          creationDate: DateTime) extends BookingData {
 
-  def save(): Booking = {
+  def save()(implicit request: Request[AnyContent]): Booking = {
     val booking = BookingDao.create(this)
     val mailer = AsyncSendgridMailer()
     // Send confirmation mail

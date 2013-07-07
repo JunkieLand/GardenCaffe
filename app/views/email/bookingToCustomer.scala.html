@@ -1,4 +1,4 @@
-@(booking: models.BookingData)
+@(booking: models.BookingData)(implicit request: play.api.mvc.Request[AnyContent])
 
 
 @email.utils.template {
