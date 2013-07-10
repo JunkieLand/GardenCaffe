@@ -129,6 +129,37 @@ var initPagination = function() {
 };
 
 
+var initFeedbackForm = function() {
+  var form = $("#form-feedback"),
+      submitBtn = form.find(".submit"),
+      title = form.find(".title"),
+      name = form.find(".name"),
+      msg = form.find(".msg");
+
+  var updateBtn = function() {
+    var hasError = false;
+    if(form.find(".title").val().length == 0) { hasError = true; }
+    if(form.find(".name").val().length == 0) { hasError = true; }
+    if(form.find(".msg").val().length == 0) { hasError = true; }
+    if(!hasError) {
+      submitBtn.removeAttr("disabled").addClass("active");
+    } else {
+      submitBtn.attr("disabled", "disabled").removeClass("active");
+    }
+  };
+
+  title.on("keydown", function() {
+    setTimeout(updateBtn, 0);
+  });
+  name.on("keydown", function() {
+    setTimeout(updateBtn, 0);
+  });
+  msg.on("keydown", function() {
+    setTimeout(updateBtn, 0);
+  });
+};
+
+
 $(document).ready(function() {
   var path = window.location.pathname;
 
@@ -141,6 +172,7 @@ $(document).ready(function() {
     initContactForm();
   } else if(path.match(/\/avis/)) {
     initPagination();
+    initFeedbackForm();
   }
 
 });
