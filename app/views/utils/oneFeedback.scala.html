@@ -5,7 +5,7 @@
     <h5>@feedback.title</h5>
     <div class="date">@feedback.formatedDate</div>
     <p>
-      @feedback.msg
+      @Html(feedback.msg.replaceAll("\\r?\\n","<br/>"))
     </p>
     <div class="author_box">
       <h6>@feedback.author</h6>

@@ -11,24 +11,26 @@
         <h3>Avis des clients</h3>
       </div>
 
-      <form method="POST" action="@routes.FeedbackCtl.create()">
-        <input type="text" placeholder="Titre..." name="title" />
-        <input type="text" placeholder="Votre nom..." name="author" />
-        <input type="text" placeholder="Votre commentaire..." name="msg" />
-        <input type="submit" value="Valider" />
-      </form>
-
       <div class="row post_row">
         <div class="span6">
+          @if(currentPage == 1) {
+            <form id="form-feedback" class="post" method="POST" action="@routes.FeedbackCtl.create()">
+              <input class="title" type="text" placeholder="Titre..." name="title" /><!--
+           --><input class="name" type="text" placeholder="Nom..." name="author" />
+              <textarea class="msg" rows="4" placeholder="Commentaire..." name="msg"></textarea>
+              <input class="submit gc-btn" type="submit" value="Envoyer">
+            </form>
+          }
+
           @for(i <- 0 to feedbacks.size - 1) {
-            @if(i % 2 == 0) {
+            @if(i % 2 == 1) {
               @utils.oneFeedback(feedbacks(i))
             }
           }
         </div>
         <div class="span6">
           @for(i <- 0 to feedbacks.size - 1) {
-            @if(i % 2 == 1) {
+            @if(i % 2 == 0) {
               @utils.oneFeedback(feedbacks(i))
             }
           }
