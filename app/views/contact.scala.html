@@ -3,16 +3,18 @@
 
 @main("Contact - Garden Caffé") {
 
-  <div id="contact">
-    <div class="container">
+  <main id="contact">
+    <section class="container">
       <div class="section_header">
         <h3>Contactez nous</h3>
       </div>
       <div class="row contact">
-        <p>
-          Une question ? Une critique ? Une réservation pour un séjour longue durée ?<br />
-          N'hésitez pas à nous contacter.
-        </p>
+        <header>
+          <p>
+            Une question ? Une critique ? Une réservation pour un séjour longue durée ?<br />
+            N'hésitez pas à nous contacter.
+          </p>
+        </header>
         <form id="contactForm" method="POST" action="@routes.ContactCtl.create()">
           <div class="row form">
             <div class="span6 box">
@@ -46,55 +48,60 @@
               </div>
             </div>
 
-            <div class="span6 box box_r">
+            <aside class="span6 box box_r">
               <h4>Horaires</h4>
               <p>
                 Ouvert tous les jours<br />
-                8h00 - 1h00
+                <time itemprop="openingHours" datetime="Mo-Su 08:00-01:00">8h00 - 1h00</time>
               </p>
               <h4>Restauration</h4>
               <p>
-                Midi : 12h00 - 14h30<br />
-                Soir : 19h30 - 22h
+                Midi : <time>12h00 - 14h30</time><br />
+                Soir : <time>19h30 - 22h</time>
               </p>
-            </div>
+            </aside>
           </div>
         </form>
       </div>
-    </div>
+    </section>
 
     <div class="row map">
       <div class="container">
         <div class="span5 box_wrapp">
-          <div class="box_cont">
+          <section class="box_cont">
             <div class="head">
               <h6>Contact</h6>
             </div>
-            <ul class="street">
-              <li>Chemin de Quaben.</li>
-              <li>BP 8069 - Libreville,</li>
-              <li class="icon icontop">
-                <span class="contacticos ico1"></span>
-                <span class="text">00 241 01 73 89 89 (Réservation)</span>
-              </li>
-              <li class="icon">
-                <span class="contacticos ico1"></span>
-                <span class="text">00 241 07 37 37 17 (Patrice)</span>
-              </li>
-              <li class="icon">
-                <span class="contacticos ico1"></span>
-                <span class="text">00 241 05 32 40 92 (Jacques)</span>
-              </li>
-              <li class="icon">
-                <span class="contacticos ico2"></span>
-                <a class="text" href="#">contact@@garden-caffe.fr</a>
-              </li>
-            </ul>
-          </div>
+            <address>
+              <ul class="street">
+                <div>
+                <li>Chemin de Quaben.</li>
+                <li>BP 8069 - Libreville,</li>
+                </div>
+                <li class="icon icontop">
+                  <span class="contacticos ico1"></span>
+                  <span class="text">00 241 01 73 89 89 (Réservation)</span>
+                </li>
+                <li class="icon">
+                  <span class="contacticos ico1"></span>
+                  <span class="text">00 241 07 37 37 17 (Patrice)</span>
+                </li>
+                <li class="icon">
+                  <span class="contacticos ico1"></span>
+                  <span class="text">00 241 05 32 40 92 (Jacques)</span>
+                </li>
+                <li class="icon">
+                  <span class="contacticos ico2"></span>
+                  <a class="text" href="#">contact@@garden-caffe.fr</a>
+                </li>
+              </ul>
+            </address>
+          </section>
         </div>
       </div>
+      <meta itemprop="map" content="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Garden+Caff%C3%A9,+Libreville,+Gabon&amp;aq=0&amp;oq=garden+ca&amp;sll=0.412032,9.431092&amp;sspn=0.004586,0.008234&amp;ie=UTF8&amp;hq=Garden+Caff%C3%A9,&amp;hnear=Libreville,+Komo-Mondaha,+Estuaire,+Gabon&amp;t=m&amp;ll=0.414602,9.423866&amp;spn=0.025749,0.058579&amp;z=15&amp;iwloc=A&amp;output=embed" />
       <iframe id="map-garden" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=Garden+Caff%C3%A9,+Libreville,+Gabon&amp;aq=0&amp;oq=garden+ca&amp;sll=0.412032,9.431092&amp;sspn=0.004586,0.008234&amp;ie=UTF8&amp;hq=Garden+Caff%C3%A9,&amp;hnear=Libreville,+Komo-Mondaha,+Estuaire,+Gabon&amp;t=m&amp;ll=0.414602,9.423866&amp;spn=0.025749,0.058579&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
     </div>
-  </div>
+  </main>
 
 }

@@ -3,17 +3,19 @@
 
 @main("Réservation - Garden Caffé") {
 
-  <div id="contact">
-    <div class="container">
+  <main id="contact">
+    <section class="container">
       <div class="section_header">
         <h3>Réservation</h3>
       </div>
 
       <div class="row contact">
-        <p>
-          Réservez dès maintenant en ligne. Nous reviendrons très vite vers vous pour vous confirmez votre séjour.<br />
-          N'hésitez pas à nous contacter pour un séjour longue durée.
-        </p>
+        <header>
+          <p>
+            Réservez dès maintenant en ligne. Nous reviendrons très vite vers vous pour vous confirmez votre séjour.<br />
+            N'hésitez pas à nous contacter pour un séjour longue durée.
+          </p>
+        </header>
         <form id="bookingForm" method="POST" action="@routes.BookingCtl.create()">
           <div class="row form">
             <div class="span6 box">
@@ -124,7 +126,7 @@
           </div>
         </form>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
 }

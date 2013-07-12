@@ -1,14 +1,16 @@
 @(feedback: models.Feedback)
 
-<div class="post">
+<article class="post">
   <div class="text">
-    <h5>@feedback.title</h5>
-    <div class="date">@feedback.formatedDate</div>
+    <header>
+      <h5>@feedback.title</h5>
+      <time class="date" datetime="@feedback.date.toString()" pubdate>@feedback.formatedDate</time>
+    </header>
     <p>
       @Html(feedback.msg.replaceAll("\\r?\\n","<br/>"))
     </p>
-    <div class="author_box">
+    <footer class="author_box">
       <h6>@feedback.author</h6>
-    </div>
+    </footer>
   </div>
-</div>
+</article>

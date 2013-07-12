@@ -3,25 +3,29 @@
 
 <footer id="footer">
   <div class="container">
-    <div class="row info">
+    <address class="row info">
       <div class="span6 residence">
-        <ul>
-          <li>Chemin de Quaben</li>
-          <li>BP 8069 - Libreville</li>
+        <ul itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <li itemprop="streetAddress">Chemin de Quaben</li>
+          <li>
+            <span itemprop="postalCode">BP 8069</span> -
+            <span itemprop="addressLocality">Libreville</span> -
+            <span itemprop="addressCountry">GABON</span>
+          </li>
         </ul>
       </div>
       <div class="span5 touch">
         <ul>
-          <li class="phone"><strong>Tel.</strong><span class="data">00 241 01 73 89 89</span></li>
-          <li class="mail"><strong>EMail</strong><span class="data">contact@@garden-caffe.fr</span></li>
+          <li class="phone"><strong>Tel.</strong><span class="data" itemprop="telephone">00 241 01 73 89 89</span></li>
+          <li class="mail"><strong>EMail</strong><span class="data" itemprop="email">contact@@garden-caffe.fr</span></li>
         </ul>
       </div>
-    </div>
+    </address>
 
     <div class="row credits">
       <div class="span12">
         <div class="row social">
-          <div class="span12">
+          <nav class="span12">
             <a href="#" class="facebook">
               <span class="socialicons ico1"></span>
               <span class="socialicons_h ico1h"></span>
@@ -30,7 +34,7 @@
               <span class="socialicons ico2"></span>
               <span class="socialicons_h ico2h"></span>
             </a>
-          </div>
+          </nav>
         </div>
 
         <div class="row copyright">
