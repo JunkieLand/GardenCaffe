@@ -74,25 +74,41 @@
             </div>
             <address>
               <ul class="street">
-                <div>
-                <li>Chemin de Quaben.</li>
-                <li>BP 8069 - Libreville,</li>
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                  <li itemprop="streetAddress">Chemin de Quaben</li>
+                  <li>
+                    <span itemprop="postalCode">BP 8069</span> -
+                    <span itemprop="addressLocality">Libreville</span> -
+                    <span itemprop="addressCountry">GABON</span>
+                  </li>
                 </div>
                 <li class="icon icontop">
                   <span class="contacticos ico1"></span>
-                  <span class="text">00 241 01 73 89 89 (Réservation)</span>
+                  <span class="text" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
+                    <meta itemprop="contactType" content="booking" />
+                    <span itemprop="telephone">00 241 01 73 89 89</span> (<span itemprop="name">Réservation</span>)
+                  </span>
                 </li>
                 <li class="icon">
                   <span class="contacticos ico1"></span>
-                  <span class="text">00 241 07 37 37 17 (Patrice)</span>
+                  <span class="text" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
+                    <span itemscope itemtype="http://schema.org/Person">
+                      <span itemprop="telephone">00 241 07 37 37 17</span> (<span itemprop="name">Patrice</span>)
+                    </span>
+                  </span>
                 </li>
                 <li class="icon">
                   <span class="contacticos ico1"></span>
-                  <span class="text">00 241 05 32 40 92 (Jacques)</span>
+                  <span class="text" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
+                    <span itemscope itemtype="http://schema.org/Person">
+                      <span itemprop="telephone">00 241 05 32 40 92</span> (<span itemprop="name">Jacques</span>)
+                    </span>
+                  </span>
                 </li>
-                <li class="icon">
+                <li class="icon" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
                   <span class="contacticos ico2"></span>
-                  <a class="text" href="#">contact@@garden-caffe.fr</a>
+                  <meta itemprop="contactType" content="contact" />
+                  <a class="text" href="#" itemprop="email">contact@@garden-caffe.fr</a>
                 </li>
               </ul>
             </address>
