@@ -261,7 +261,12 @@
 .control-group .help-block {
   display: none;
 }
-
+#nameCtrl.control-group, #emailCtrl.control-group {
+  margin-bottom: 0;
+}
+#nameCtrl.control-group.error, #emailCtrl.control-group.error {
+  margin-bottom: 10px;
+}
 #peopleNbCtrl, #fromCtrl {
   margin-bottom: 0;
 }
@@ -330,4 +335,30 @@
 
 section header, article header {
   background: none !important;
+}
+
+
+#in_pricing2.gc-pricing .plan .price span.qty {
+  font-size: 25px;
+}
+#in_pricing2.gc-pricing .plan .price span.dollar {
+  font-size: 16px;
+}
+#in_pricing2.gc-pricing .plan .price span.month {
+  font-weight: normal;
+}
+#in_pricing2.gc-pricing .plan .price .validity {
+  font-size: 12px;
+  float: right;
+  position: relative;
+  top: 5px;
+}
+#in_pricing2.gc-pricing .plan .features {
+  margin-top: 17px;
+}
+#in_pricing2.gc-pricing .plan .features p {
+  line-height: 20px;
+}
+#in_pricing2.gc-pricing .plan .wrapper{
+  padding-top: 33px;
 }
