@@ -1,16 +1,18 @@
 @(feedback: models.Feedback)
 
-<article class="post">
+<article class="post" itemprop="review" itemscope itemtype="http://schema.org/Review">
   <div class="text">
     <header>
-      <h5>@feedback.title</h5>
-      <time class="date" datetime="@feedback.date.toString()" pubdate>@feedback.formatedDate</time>
+      <h5 itemprop="name">@feedback.title</h5>
+      <time class="date" datetime="@feedback.date.toString()" pubdate itemprop="datePublished">
+        @feedback.formatedDate
+      </time>
     </header>
-    <p>
+    <p itemprop="reviewBody">
       @Html(feedback.msg.replaceAll("\\r?\\n","<br/>"))
     </p>
     <footer class="author_box">
-      <h6>@feedback.author</h6>
+      <h6 itemprop="author">@feedback.author</h6>
     </footer>
   </div>
 </article>
