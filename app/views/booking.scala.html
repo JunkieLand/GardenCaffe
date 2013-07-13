@@ -98,15 +98,23 @@
               <div class="row charts_wrapp">
                 <div class="span4 ultra pull-right" style="margin-bottom: 10px;">
                   <div class="plan" style="top: 0px;">
-                    <div class="wrapper">
-                      <h3>Bungalow</h3>
-                      <div class="price">
-                        <span class="qty">51 000</span>
-                        <span class="dollar">FCFA</span>
-                        <span class="month">/jour</span>
-                        <span class="validity">(tarif 2013)</span>
+                    <div class="wrapper" itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer">
+                      <h3 itemprop="name">Bungalow</h3>
+                      <div class="price" itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">
+                        <span class="qty" itemprop="price">51 000</span>
+                        <span class="dollar">
+                          <meta itemprop="priceCurrency" content="XAF">FCFA
+                        </span>
+                        <span class="month" itemprop="eligibleQuantity" itemscope itemtype="http://schema.org/QuantitativeValue">
+                          /<span itemprop="name">jour</span>
+                          <meta itemprop="value" content="1" />
+                          <meta itemprop="unitCode" content="DAY" />
+                        </span>
+                        <span class="validity" >
+                          (tarif <time itemprop="validThrough" datetime="2013-12-31T23:59:59">2013</time>)
+                        </span>
                       </div>
-                      <div class="features">
+                      <div class="features" itemprop="description">
                         <p>Chambre double</p>
                         <p>Kitchenette</p>
                         <p>Terrasse</p>
@@ -119,15 +127,23 @@
 
                 <div class="span4 ultra pull-right">
                   <div class="plan" style="top: 0px;">
-                    <div class="wrapper">
-                      <h3>Chambre classique</h3>
-                      <div class="price">
-                        <span class="qty">51 000</span>
-                        <span class="dollar">FCFA</span>
-                        <span class="month">/jour</span>
-                        <span class="validity">(tarif 2013)</span>
+                    <div class="wrapper" itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer">
+                    <h3 itemprop="name">Chambre classique</h3>
+                      <div class="price" itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">
+                        <span class="qty" itemprop="price">51 000</span>
+                        <span class="dollar">
+                          <meta itemprop="priceCurrency" content="XAF">FCFA
+                        </span>
+                        <span class="month" itemprop="eligibleQuantity" itemscope itemtype="http://schema.org/QuantitativeValue">
+                          /<span itemprop="name">jour</span>
+                          <meta itemprop="value" content="1" />
+                          <meta itemprop="unitCode" content="DAY" />
+                        </span>
+                        <span class="validity" >
+                          (tarif <time itemprop="validThrough" datetime="2013-12-31T23:59:59">2013</time>)
+                        </span>
                       </div>
-                      <div class="features">
+                      <div class="features" itemprop="description">
                         <p>Chambre double</p>
                         <p><strong>Long séjour</strong> : <a href="@routes.ContactCtl.page()">nous contacter</a></p>
                       </div>
