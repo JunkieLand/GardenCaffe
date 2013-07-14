@@ -40,6 +40,36 @@
   line-height: 23px;
 }
 
+#gc-events {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.gc-event {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 10px 10px 10px;
+//  margin-bottom: 10px;
+}
+.gc-event:first-child {
+  margin-top: 0px;
+}
+.gc-event:last-child {
+  border-bottom: none;
+}
+.gc-event .gc-event-title {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+}
+.gc-event-date {
+  float: right;
+  color: #9F9F9F;
+  font-style: italic;
+  font-size: 13px;
+}
+.gc-event-msg {
+  font-size: 13px;
+}
+
 .map .container {
   position: relative;
 }
@@ -126,7 +156,9 @@
   margin-right: 4px;
 }
 
-
+/*
+ * FEEDBACK
+ */
 #feedback .post {
   width: 100%;
   background: #ffffff;
@@ -143,6 +175,9 @@
   font-size: 20px;
   line-height: 23px;
   color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 #feedback .post .date {
@@ -179,6 +214,9 @@
   margin: 0 0 3px 0;
   line-height: 15px;
   font-weight: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 #feedback .post .author_box p {
@@ -362,3 +400,4 @@ section header, article header {
 #in_pricing2.gc-pricing .plan .wrapper{
   padding-top: 33px;
 }
+
