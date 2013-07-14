@@ -10,7 +10,7 @@ import org.joda.time.DateTime
 
 object EventsDao extends MongoUtils {
 
-  val newsColl = db("news")
+  val eventsColl = db("events")
   RegisterJodaTimeConversionHelpers()
 
 
@@ -21,23 +21,31 @@ object EventsDao extends MongoUtils {
       POST_DATE -> news.postDate,
       MSG -> news.msg
     )
-    newsColl.insert(query)
-    newsFromDBO(query)
+    eventsColl.insert(query)
+    eventsFromDBO(query)
   }
 
   def findAll(skip: Int, limit: Int): Seq[Event] = {
-    newsColl.find()
+    eventsColl.find()
       .sort(§(POST_DATE -> -1))
       .skip(skip)
       .limit(limit)
-      .map(newsFromDBO(_))
+      .map(eventsFromDBO(_))
       .toList
   }
 
-  def totalNews(): Int = newsColl.find().count
+  def findFuture(): Seq[Event] = {
+    val query = §(EVENT_DATE -> §("$gte" -> new DateTime()))
+    eventsColl.find(query)
+      .sort(§(EVENT_DATE -> 1))
+      .map(eventsFromDBO(_))
+      .toList
+  }
+
+  def totalEvents(): Int = eventsColl.find().count
 
 
-  def newsFromDBO(dbo: MongoDBObject) = Event(
+  def eventsFromDBO(dbo: MongoDBObject) = Event(
     dbo.as[ObjectId](ID).toString,
     dbo.as[String](TITLE),
     dbo.as[DateTime](EVENT_DATE),

@@ -55,6 +55,8 @@ object Event {
     EventsDao.findAll((page - 1) * PAGE_SIZE, PAGE_SIZE)
   }
 
-  def totalPageNb() = EventsDao.totalNews() / PAGE_SIZE + 1
+  def findFuture(): Seq[Event] = EventsDao.findFuture()
+
+  def totalPageNb() = EventsDao.totalEvents() / PAGE_SIZE + 1
 
 }

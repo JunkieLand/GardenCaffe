@@ -1,4 +1,4 @@
-@(message: String)(implicit request: play.api.mvc.Request[AnyContent])
+@(events: Seq[Event])(implicit request: play.api.mvc.Request[AnyContent])
 
 @main("Garden Caffé") {
 
@@ -28,21 +28,7 @@
           </div>
           <div id="gc-events-wrapper">
             <div id="gc-events">
-              <article id="toto" class="gc-event">
-                <time class="gc-event-date">31/12/2013</time>
-                <h5 class="gc-event-title">Soirée pocker 1</h5>
-                <div class="gc-event-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod a urna eu.</div>
-              </article>
-              <article class="gc-event">
-                <time class="gc-event-date">31/12/2013</time>
-                <h5 class="gc-event-title">Soirée pocker 2</h5>
-                <div class="gc-event-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod a urna eu lacinia. Mauris accumsan consequat magna et pulvinar amet.</div>
-              </article>
-              <article class="gc-event">
-                <time class="gc-event-date">31/12/2013</time>
-                <h5 class="gc-event-title">Soirée pocker 3</h5>
-                <div class="gc-event-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod a urna eu lacinia. Mauris accumsan consequat magna et pulvinar amet.</div>
-              </article>
+              @events.map( event => utils.oneEvent(event) )
             </div>
             <i id="gc-event-previous" class="gc-event-arrow"></i>
             <i id="gc-event-next" class="gc-event-arrow"></i>
