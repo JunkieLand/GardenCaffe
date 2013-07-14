@@ -160,6 +160,102 @@ var initFeedbackForm = function() {
 };
 
 
+var initEventsFeed = function() {
+  var isMoving = false,
+      controlsEnabled = false;
+  var onPrevious = function() {
+    controlsEnabled= false;
+    previous();
+  };
+  var onNext = function() {
+    controlsEnabled= false;
+    next();
+  };
+  var enableControls = function() {
+    if(!controlsEnabled) {
+      controlsEnabled = true;
+      $("#gc-event-previous").one("click", onPrevious);
+      $("#gc-event-next").one("click", onNext);
+    }
+  };
+  var disableControls = function() {
+    controlsEnabled = false;
+    $("#gc-event-previous").off("click", onPrevious);
+    $("#gc-event-next").off("click", onNext);
+  };
+
+  var getEvents = function() {
+    return $(".gc-event");
+  };
+
+  var next = function() {
+    if(!isMoving) {
+      disableControls();
+      isMoving = true;
+      var first = $(getEvents()[0]),
+          height = first.outerHeight();
+      first.clone().appendTo($("#gc-events"));
+
+      first.animate({
+        "margin-top": - height
+      }, {
+        duration: 2000,
+        complete: function() {
+          first.remove();
+          enableControls();
+          isMoving = false;
+        }
+      });
+    }
+  };
+
+  var previous = function() {
+    if(!isMoving) {
+      disableControls();
+      isMoving = true;
+      var events = getEvents(),
+          last = $(events[events.length - 1]),
+          clone = last.clone(),
+          height = last.outerHeight();
+      clone.css("margin-top", -height).prependTo($("#gc-events"));
+
+      clone.animate({
+        "margin-top": 0
+      }, {
+        duration: 2000,
+        complete: function() {
+          last.remove();
+          enableControls();
+          isMoving = false;
+        }
+      });
+    }
+  };
+
+  $("#gc-events-wrapper").hover(function() {
+    $("#gc-event-previous").fadeIn("fast");
+    $("#gc-event-next").fadeIn("fast");
+  }, function() {
+    $("#gc-event-previous").fadeOut("fast");
+    $("#gc-event-next").fadeOut("fast");
+  });
+
+  var getTotalHeight = function() {
+    var events = getEvents(),
+        total = 0;
+    for(var i=0; i<events.length; i++) {
+      total += $(events[i]).outerHeight();
+    }
+    return total;
+  };
+
+  if(getTotalHeight() > $("#gc-events-wrapper").height()) {
+    enableControls();
+    setInterval(next, 7000);
+  }
+};
+
+
 $(document).ready(function() {
   var path = window.location.pathname;
 
@@ -173,6 +269,8 @@ $(document).ready(function() {
   } else if(path.match(/\/avis/)) {
     initPagination();
     initFeedbackForm();
+  } else if(path.match(/\//)) {
+    initEventsFeed();
   }
 
 });
