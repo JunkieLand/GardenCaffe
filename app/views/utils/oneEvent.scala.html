@@ -1,7 +1,7 @@
 @(event: models.Event)
 
-<article class="gc-event">
-  <time class="gc-event-date">@event.eventDateDDMMYYY</time>
-  <h5 class="gc-event-title">@event.title</h5>
-  <div class="gc-event-msg">@event.msg</div>
+<article class="gc-event" itemprop="event" itemscope itemtype="http://schema.org/Event">
+  <time class="gc-event-date" itemprop="startDate" datetime="@event.eventDate.toString()" >@event.eventDateDDMMYYY</time>
+  <h5 class="gc-event-title" itemprop="name">@event.title</h5>
+  <div class="gc-event-msg" itemprop="description">@event.msg</div>
 </article>
