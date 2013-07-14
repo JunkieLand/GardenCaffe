@@ -4,14 +4,14 @@ import play.api.mvc.{Action, Controller}
 import play.api.data._
 import play.api.data.Forms._
 import models._
-import models.News._
+import models.Event._
 
 
 object Administration extends Controller{
 
   def news(page: Int) = Action { implicit request =>
-    val news = News.findAll(page)
-    val totalPageNb = News.totalPageNb()
+    val news = Event.findAll(page)
+    val totalPageNb = Event.totalPageNb()
     Ok(views.html.admin.newsAdmin(news, totalPageNb, page))
   }
 
@@ -21,7 +21,7 @@ object Administration extends Controller{
       TITLE -> text,
       EVENT_DATE -> text,
       MSG -> text
-    )(SimpleNews.apply)(SimpleNews.unapplyNoPostDate)
+    )(SimpleEvent.apply)(SimpleEvent.unapplyNoPostDate)
   )
 
   def createNews() = Action { implicit request =>

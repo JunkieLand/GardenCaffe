@@ -1,11 +1,11 @@
 package models
 
 import org.joda.time.DateTime
-import dao.NewsDao
+import dao.EventsDao
 import org.joda.time.format.DateTimeFormat
 
 
-trait NewsData {
+trait EventData {
   val title: String
   val eventDate: DateTime
   val postDate: DateTime
@@ -13,23 +13,23 @@ trait NewsData {
 }
 
 
-case class SimpleNews(title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends NewsData {
-  def save(): News = NewsDao.create(this)
+case class SimpleEvent(title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends EventData {
+  def save(): Event = EventsDao.create(this)
 }
 
 
-object SimpleNews {
+object SimpleEvent {
   val formatter = DateTimeFormat.forPattern("dd-MM-yyyy")
 
-  def apply(title: String, eventDate: String, msg: String): SimpleNews = {
+  def apply(title: String, eventDate: String, msg: String): SimpleEvent = {
     def parseDate(date: String) = formatter.parseDateTime(date)
     apply(title, parseDate(eventDate), new DateTime(), msg)
   }
-  def unapplyNoPostDate(news: SimpleNews) = Some(news.title, formatter.print(news.eventDate), news.msg)
+  def unapplyNoPostDate(news: SimpleEvent) = Some(news.title, formatter.print(news.eventDate), news.msg)
 }
 
 
-case class News(id: News.Id, title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends NewsData {
+case class Event(id: Event.Id, title: String, eventDate: DateTime, postDate: DateTime, msg: String) extends EventData {
   private val formatter = DateTimeFormat.forPattern("dd-MM-yyyy")
 
   def eventDateDDMMYYY: String = {
@@ -42,7 +42,7 @@ case class News(id: News.Id, title: String, eventDate: DateTime, postDate: DateT
 }
 
 
-object News {
+object Event {
   type Id = String
   val PAGE_SIZE = 10
 
@@ -51,10 +51,10 @@ object News {
   val POST_DATE = "postDate"
   val MSG = "msg"
 
-  def findAll(page: Int): Seq[News] = {
-    NewsDao.findAll((page - 1) * PAGE_SIZE, PAGE_SIZE)
+  def findAll(page: Int): Seq[Event] = {
+    EventsDao.findAll((page - 1) * PAGE_SIZE, PAGE_SIZE)
   }
 
-  def totalPageNb() = NewsDao.totalNews() / PAGE_SIZE + 1
+  def totalPageNb() = EventsDao.totalNews() / PAGE_SIZE + 1
 
 }

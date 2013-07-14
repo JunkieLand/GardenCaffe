@@ -1,20 +1,20 @@
 package dao
 
 import dao.utils.MongoUtils
-import models.{SimpleNews, News}
-import models.News._
+import models.{SimpleEvent, Event}
+import models.Event._
 import com.mongodb.casbah.commons.conversions.scala._
 import com.mongodb.casbah.Imports._
 import org.joda.time.DateTime
 
 
-object NewsDao extends MongoUtils {
+object EventsDao extends MongoUtils {
 
   val newsColl = db("news")
   RegisterJodaTimeConversionHelpers()
 
 
-  def create(news: SimpleNews): News = {
+  def create(news: SimpleEvent): Event = {
     val query = §(
       TITLE -> news.title,
       EVENT_DATE -> news.eventDate,
@@ -25,7 +25,7 @@ object NewsDao extends MongoUtils {
     newsFromDBO(query)
   }
 
-  def findAll(skip: Int, limit: Int): Seq[News] = {
+  def findAll(skip: Int, limit: Int): Seq[Event] = {
     newsColl.find()
       .sort(§(POST_DATE -> -1))
       .skip(skip)
@@ -37,7 +37,7 @@ object NewsDao extends MongoUtils {
   def totalNews(): Int = newsColl.find().count
 
 
-  def newsFromDBO(dbo: MongoDBObject) = News(
+  def newsFromDBO(dbo: MongoDBObject) = Event(
     dbo.as[ObjectId](ID).toString,
     dbo.as[String](TITLE),
     dbo.as[DateTime](EVENT_DATE),
