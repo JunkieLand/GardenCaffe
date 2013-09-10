@@ -1,9 +1,9 @@
-@(title: String, photo: String)(msg: Html)
+@(title: String, photo: String, photoPath: Option[play.api.mvc.Call] = None)(msg: Html)
 
 <article class="span4 service" itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer">
   <header>
     <a href="#">
-      <img class="img-rounded" src="@photo" alt="pixels" itemprop="image" />
+      <img class="img-rounded" src="@photoPath.getOrElse(photo)" alt="pixels" itemprop="image" />
     </a>
   </header>
   <div class="text">
