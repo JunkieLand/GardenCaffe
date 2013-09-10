@@ -18,7 +18,7 @@
         <div class="container">
           <a class="brand" href="#">GardenCaffé - Administration</a>
           <ul class="nav pull-right">
-            <li class="active"><a href="#">News</a></li>
+            <li class="active"><a href="@routes.Administration.logout()">Se déconnecter</a></li>
           </ul>
         </div>
       </div>
@@ -28,7 +28,6 @@
       <h3>Nouvelle news</h3>
       <form method="POST" action="@routes.Administration.createNews()">
         <fieldset>
-          <label>140 caractères maximum</label>
           <input class="input-xxlarge" type="text" placeholder="Titre..." name="title">
 
           <br />
@@ -38,7 +37,7 @@
             <span class="add-on"><i class="icon-calendar"></i></span>
           </div>
 
-          <textarea id="new-news" class="input-xxlarge" placeholder="Nouvelle news..." maxlength="140" name="msg"></textarea>
+          <textarea id="new-news" class="input-xxlarge" placeholder="Nouvelle news..." name="msg"></textarea>
           <button type="submit" class="btn">Poster</button>
         </fieldset>
       </form>

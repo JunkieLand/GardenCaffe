@@ -3,19 +3,22 @@
 # ~~~~
 
 # Home page
-GET      /                           controllers.HomeCtl.index
+GET         /                    controllers.HomeCtl.index
 
-GET      /reservation                controllers.BookingCtl.page()
-POST     /reservation                controllers.BookingCtl.create()
+GET         /reservation         controllers.BookingCtl.page()
+POST        /reservation         controllers.BookingCtl.create()
 
-GET      /avis                       controllers.FeedbackCtl.page(page: Int ?= 1)
-POST     /avis                       controllers.FeedbackCtl.create()
+GET         /avis                controllers.FeedbackCtl.page(page: Int ?= 1)
+POST        /avis                controllers.FeedbackCtl.create()
 
-GET      /contact                    controllers.ContactCtl.page()
-POST     /contact                    controllers.ContactCtl.create()
+GET         /contact             controllers.ContactCtl.page()
+POST        /contact             controllers.ContactCtl.create()
 
-GET      /admin                      controllers.Administration.news(page: Int ?= 1)
-POST     /admin/news                 controllers.Administration.createNews()
+GET         /admin               controllers.Administration.getLogin()
+POST        /admin               controllers.Administration.postLogin()
+GET         /admin/news          controllers.Administration.news(page: Int ?= 1)
+POST        /admin/news          controllers.Administration.createNews()
+GET         /admin/logout        controllers.Administration.logout()
 
 # Map static resources from the /public folder to the /assets URL path
-GET      /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
