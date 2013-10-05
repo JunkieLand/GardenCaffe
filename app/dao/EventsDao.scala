@@ -35,7 +35,7 @@ object EventsDao extends MongoUtils {
   }
 
   def findFuture(): Seq[Event] = {
-    val query = §(EVENT_DATE -> §("$gte" -> new DateTime()))
+    val query = §(EVENT_DATE -> §("$gte" -> new DateTime().minusDays(1)))
     eventsColl.find(query)
       .sort(§(EVENT_DATE -> 1))
       .map(eventsFromDBO(_))

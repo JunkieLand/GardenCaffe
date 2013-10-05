@@ -6,7 +6,7 @@ import com.mongodb.casbah.MongoClient
 
 trait MongoUtils {
 
-  val db = MongoClient("94.23.51.112", 27017)("gardencaffe")
+  val db = MongoClient("localhost", 27017)("gardencaffe")
 
 
   val § = MongoDBObject
