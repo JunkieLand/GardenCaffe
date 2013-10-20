@@ -18,6 +18,9 @@
           <a @if(request.uri.startsWith(routes.FeedbackCtl.page().url)){class="active"} href="@routes.FeedbackCtl.page()">avis</a>
         </li>
         <li>
+          <a @if(request.uri.startsWith(routes.GalleryCtl.page().url)){class="active"} href="@routes.GalleryCtl.page()">Photos</a>
+        </li>
+        <li>
           <a @if(request.uri.startsWith(routes.ContactCtl.page().url)){class="active"} href="@routes.ContactCtl.page()">contact</a>
         </li>
       </ul>

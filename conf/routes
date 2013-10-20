@@ -11,6 +11,8 @@ POST        /reservation         controllers.BookingCtl.create()
 GET         /avis                controllers.FeedbackCtl.page(page: Int ?= 1)
 POST        /avis                controllers.FeedbackCtl.create()
 
+GET         /photos              controllers.GalleryCtl.page()
+
 GET         /contact             controllers.ContactCtl.page()
 POST        /contact             controllers.ContactCtl.create()
 

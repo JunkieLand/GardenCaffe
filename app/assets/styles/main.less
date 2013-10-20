@@ -429,3 +429,24 @@ section header, article header {
   padding-top: 33px;
 }
 
+
+/*** GALLERY ***/
+#myCarousel {
+  margin-top: 160px;
+}
+#myCarousel.slide {
+  display: block;
+  position: relative;
+  width: inherit;
+}
+#myCarousel {
+  .carousel-control {
+    opacity: 0;
+    top: 50%;
+    -webkit-transition: opacity 0.4s;
+  }
+  &:hover .carousel-control {
+    opacity: 0.5;
+    &:hover { opacity: 0.9; }
+  }
+}

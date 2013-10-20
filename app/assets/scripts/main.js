@@ -256,6 +256,16 @@ var initEventsFeed = function() {
 };
 
 
+var initCarousel = function() {
+  var items = $("#myCarousel .item");
+  if(items.length > 0) {
+    $(items[0]).addClass("active");
+  }
+  $("#myCarousel").carousel();
+};
+
+
+
 $(document).ready(function() {
   var path = window.location.pathname;
 
@@ -269,6 +279,8 @@ $(document).ready(function() {
   } else if(path.match(/\/avis/)) {
     initPagination();
     initFeedbackForm();
+  } else if(path.match(/\/photos/)) {
+    initCarousel();
   } else if(path.match(/\//)) {
     initEventsFeed();
   }
