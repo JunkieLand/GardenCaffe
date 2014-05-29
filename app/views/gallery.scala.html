@@ -1,6 +1,6 @@
 @(imgs: Seq[GalleryItem])(implicit request: play.api.mvc.Request[AnyContent])
 
-@main("Photos - Garden Caffé", "") {
+@main("Photos - Garden Caffé", "Gallerie photos de l'intérieur et de l'extérieur du Garden Caffé.") {
 
   <section class="container">
     <div class="row">
@@ -14,7 +14,7 @@
 
           <div class="carousel-inner">
             @imgs.map { i =>
-              @oneItem(i.url)
+              @oneItem(i)
             }
           </div>
 
@@ -29,8 +29,8 @@
 }
 
 
-@oneItem(imgUrl: play.api.mvc.Call) = {
+@oneItem(galleryItem: GalleryItem) = {
   <div class="item">
-    <img src="@imgUrl" alt="" />
+    <img src="@galleryItem.url" alt="@galleryItem.alt" />
   </div>
 }
