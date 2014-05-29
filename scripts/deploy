@@ -1,0 +1,4 @@
+#!/bin/bash
+
+scp -r ../target/staged le_3k@lena:/www/garden-caffe/staged
+
