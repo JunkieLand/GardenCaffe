@@ -40,7 +40,7 @@ object Administration extends Controller with Auth {
       "login" -> text,
       "pwd" -> text
     ) verifying("Identifiants invalides", { _ match {
-      case (e: String, p: String) => { e == "admin" && p == "adminozor" }
+      case (e: String, p: String) => { e == "adminozor" && p == "jacques_didier" }
     }})
   )
 
