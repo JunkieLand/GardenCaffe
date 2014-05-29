@@ -9,7 +9,7 @@ import utils.Log
 
 
 trait Mailer {
-  val ADMIN_EMAIL = "nicolas.rey.3k@gmail.com"
+  val ADMIN_EMAIL = "jacquessevestre@yahoo.fr"
   def send(subject: String, htmlBody: String, from: String, to: String)
 }
 
