@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo ""
+echo "*****************************************************************************"
+echo "****     Remove old docker images : gardencaffe, mongodb_gardencaffe     ****"
+echo "*****************************************************************************"
+echo ""
+
+docker rm -f mongodb_gardencaffe
+docker rm -f gardencaffe
+
+echo ""
+echo "*****************************************************************************"
+echo "****      Starting docker images : gardencaffe,mongodb_gardencaffe       ****"
+echo "*****************************************************************************"
+echo ""
+
+docker run -d --name mongodb_gardencaffe -e AUTH=no -v /www/garden-caffe/data:/data/db  mongodb_gardencaffe
+docker run -d -p 9010:9010 --link mongodb_gardencaffe:db --name gardencaffe gardencaffe
+
+echo ""
+echo "*****************************************************************************"
+echo "****                     Garden Caffé is running !!!                     ****"
+echo "*****************************************************************************"
+echo ""

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd ..
+
+echo ""
+echo "***********************************************************"
+echo "****     Start building docker image : gardencaffe     ****"
+echo "***********************************************************"
+echo ""
+
+docker build -t gardencaffe .
+
+echo ""
+echo "***********************************************************"
+echo "****           Start building image : mongodb          ****"
+echo "***********************************************************"
+echo ""
+
+docker build -t mongodb_gardencaffe mongodb
+
+echo ""
+echo "***********************************************************"
+echo "****                 Done building !!!                 ****"
+echo "***********************************************************"

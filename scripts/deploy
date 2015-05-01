@@ -1,4 +1,6 @@
 #!/bin/bash
 
-scp -r ../target/staged le_3k@lena:/www/garden-caffe/staged
+cd ../target
 
+# Upload staged archive and start script
+scp -r {staged,start} kenny:/www/garden-caffe/app/target/
