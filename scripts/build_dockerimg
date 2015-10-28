@@ -1,6 +1,12 @@
 #!/bin/bash
 
-cd ..
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+GARDENCAFFE_DOCKER_NAME=gardencaffe
+MONGODB_DOCKER_NAME=gardencaffe_mongodb
+
+PROJECT_DIR=$CURRENT_DIR/..
+MONGODB_DIR=$PROJECT_DIR/mongodb
 
 echo ""
 echo "***********************************************************"
@@ -8,7 +14,7 @@ echo "****     Start building docker image : gardencaffe     ****"
 echo "***********************************************************"
 echo ""
 
-docker build -t gardencaffe .
+docker build -t $GARDENCAFFE_DOCKER_NAME $PROJECT_DIR
 
 echo ""
 echo "***********************************************************"
@@ -16,7 +22,7 @@ echo "****           Start building image : mongodb          ****"
 echo "***********************************************************"
 echo ""
 
-docker build -t mongodb_gardencaffe mongodb
+docker build -t $MONGODB_DOCKER_NAME $MONGODB_DIR
 
 echo ""
 echo "***********************************************************"

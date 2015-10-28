@@ -1,13 +1,16 @@
 #!/bin/bash
 
+GARDENCAFFE_DOCKER_NAME=gardencaffe
+MONGODB_DOCKER_NAME=gardencaffe_mongodb
+
 echo ""
 echo "*****************************************************************************"
 echo "****      Stopping docker images : gardencaffe, mongodb_gardencaffe      ****"
 echo "*****************************************************************************"
 echo ""
 
-docker stop mongodb_gardencaffe
-docker stop gardencaffe
+docker stop $GARDENCAFFE_DOCKER_NAME
+docker stop $MONGODB_DOCKER_NAME
 
 echo ""
 echo "*****************************************************************************"
